@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Air Pollution Index</title>
     <link rel="stylesheet" href="../Styles/style.css" />
+    <script defer src="./script.js"></script>
   </head>
   <body>
-    <div class="head">
-      <header class="header">
-        <h1 style="text-align: center">
-          Real-Time Air Quality Updates for Your City
-        </h1>
-      </header>
+    <div class="img">
+      <img src="../Image/logo.avif" alt="" srcset="" />
+      <h1 style="text-align: center">
+        Real-Time Air Quality Updates for Your City
+      </h1>
     </div>
 
     <div class="container">
@@ -20,42 +20,66 @@
         <div class="top-left">
           <div class="clearfix::after">
             <h2 style="text-align: center">Registration Form</h2>
-            <form>
-              <label for="name">Full name: </label>
-              <input type="text" placeholder="Full name" />
-              <br />
+            <form id="form" action="/">
+              <div class="input-control">
+                <label for="name">Full name: </label>
+                <input id="f-name" name="f-name" type="text" />
+                <div class="error"></div>
+              </div>
 
-              <label for="email">Email: </label>
-              <input type="email" placeholder="Enter your email Address" />
-              <br />
-              <label for="password">Enter Password</label>
-              <input type="password" placeholder="Password" />
-              <br />
-              <label for="confirm-password">Confirm Password</label>
-              <input type="password" placeholder="Confirm Password" />
-              <label for="dob">Date of birth</label>
-              <input type="date" id="dob" name="dob" />
+              <div class="input-control">
+                <label for="email">Email: </label>
+                <input id="email" name="email" type="email" />
+                <div class="error"></div>
+              </div>
 
-              <label for="male">Male</label>
-              <input type="radio" id="male" name="gender" value="male" />
+              <div class="input-control">
+                <label for="Address">Address </label>
+                <input id="address" name="address" type="text" />
+                <div class="error"></div>
+              </div>
 
-              <label for="female">Female</label>
-              <input type="radio" id="female" name="gender" value="female" />
+              <div class="input-control">
+                <label for="zip">Zip Code</label>
+                <input id="zip" name="zip" type="number" />
+                <div class="error"></div>
+              </div>
 
-              <label for="city">Select a City:</label>
-              <select id="city">
-                <option value="" disabled selected>Choose a city</option>
-                <option value="new_york">New York, USA</option>
-                <option value="los_angeles">Los Angeles, USA</option>
-                <option value="london">London, UK</option>
-                <option value="tokyo">Tokyo, Japan</option>
-                <option value="sydney">Sydney, Australia</option>
-                <option value="cape_town">Cape Town, South Africa</option>
-                <option value="beijing">Beijing, China</option>
-                <option value="rio">Rio de Janeiro, Brazil</option>
-                <option value="moscow">Moscow, Russia</option>
-                <option value="cairo">Cairo, Egypt</option>
-              </select>
+              <div class="input-control">
+                <label for="password">Enter Password</label>
+                <input id="password" name="password" type="password" />
+                <div class="error"></div>
+              </div>
+
+              <div class="input-control">
+                <label for="confirm-password">Confirm Password</label>
+                <input id="password2" name="password2" type="password" />
+                <div class="error"></div>
+              </div>
+
+              <div class="input-control" id="city">
+                <label for="city">Select a City:</label>
+                <select id="city">
+                  <option value="" disabled selected>Choose a city</option>
+                  <option value="new_york">New York, USA</option>
+                  <option value="los_angeles">Los Angeles, USA</option>
+                  <option value="london">London, UK</option>
+                  <option value="tokyo">Tokyo, Japan</option>
+                  <option value="sydney">Sydney, Australia</option>
+                  <option value="cape_town">Cape Town, South Africa</option>
+                  <option value="beijing">Beijing, China</option>
+                  <option value="rio">Rio de Janeiro, Brazil</option>
+                  <option value="moscow">Moscow, Russia</option>
+                  <option value="cairo">Cairo, Egypt</option>
+                </select>
+              </div>
+              <div class="agree">
+                <input type="checkbox" id="agree" value="Bike" />
+                <label for="vehicle1"> Tearms and condition </label>
+              </div>
+              <div class="buttondiv">
+                <button type="submit">Sign Up</button>
+              </div>
             </form>
           </div>
         </div>
