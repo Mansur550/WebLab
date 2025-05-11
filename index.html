@@ -29,7 +29,7 @@
 
               <div class="input-control">
                 <label for="email">Email: </label>
-                <input id="email" name="email" type="email" />
+                <input id="email" name="email" type="text" />
                 <div class="error"></div>
               </div>
 
@@ -38,7 +38,6 @@
                 <input id="address" name="address" type="text" />
                 <div class="error"></div>
               </div>
-
               <div class="input-control">
                 <label for="zip">Zip Code</label>
                 <input id="zip" name="zip" type="number" />
@@ -72,18 +71,39 @@
                   <option value="moscow">Moscow, Russia</option>
                   <option value="cairo">Cairo, Egypt</option>
                 </select>
+                <span class="error"></span>
               </div>
-              <div class="agree">
-                <input type="checkbox" id="agree" value="Bike" />
-                <label for="vehicle1"> Tearms and condition </label>
+              <div class="input-control" id="agree-wrapper">
+                <input type="checkbox" id="agree" />
+                <label for="agree">I agree</label>
+                <span class="error"></span>
               </div>
+
               <div class="buttondiv">
                 <button type="submit">Sign Up</button>
               </div>
             </form>
           </div>
         </div>
-        <div class="bottom-left">Bottom Left</div>
+        <div class="bottom-left">
+          <h2 style="text-align: center">Log-in page</h2>
+
+          <div class="input-control">
+            <label for="email">Email: </label>
+            <input id="email" name="email" type="email" />
+            <div class="error"></div>
+
+            <div class="input-control">
+              <label for="password">Enter Password</label>
+              <input id="password" name="password" type="password" />
+              <div class="error"></div>
+            </div>
+
+            <div class="buttondiv">
+              <button type="submit">Log in</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="right">Right Section</div>
     </div>
