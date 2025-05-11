@@ -5,12 +5,17 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 const address= document.getElementById('address');
 const zip= document.getElementById('zip');
+const city =document.getElementById('city');
+const agree = document.getElementById('agree');
+
+
 
 
 form.addEventListener('submit', e => {
     e.preventDefault();
 
     validateInputs();
+   
 });
 
 const setError = (element, message) => {
@@ -29,9 +34,11 @@ const setSuccess = element => {
     errorDisplay.innerText = '';
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
+      
+     
 };
 
-const isValidFullname = fname => {
+const isValidFullname= fname=> {
     const re = /^[A-Za-z]+(\s[A-Za-z]+)+$/;
     return re.test(fname);
 }
@@ -43,13 +50,29 @@ const isValidEmail = email => {
 }
 const isValidAddress = address => {
     const re = /^[A-Za-z0-9\s,.-]{5,}$/;  // Letters, numbers, spaces, commas, periods, and hyphens
-    return re.test(address);
+    return re.test(String(address));
 }
 
-const isValidZip = zip => {
-    const re = /^\d{5}$/;
-    return re.test(zip);
-}
+ const isValidZip = zip => {
+    const re = /^\d{4}$/;
+    return re.test(String(zip));
+ }
+
+const setCheckboxError = (checkbox, message) => {
+    const wrapper = document.getElementById('agree-wrapper');
+    const errorDisplay = wrapper.querySelector('.error');
+    errorDisplay.innerText = message;
+    wrapper.classList.add('error');
+    wrapper.classList.remove('success');
+};
+
+const setCheckboxSuccess = checkbox => {
+    const wrapper = document.getElementById('agree-wrapper');
+    const errorDisplay = wrapper.querySelector('.error');
+    errorDisplay.innerText = '';
+    wrapper.classList.add('success');
+    wrapper.classList.remove('error');
+};
 
 
 
@@ -61,69 +84,102 @@ const validateInputs = () => {
     const password2Value = password2.value.trim();
     const addressValue = address.value.trim();
     const zipValue = zip.value.trim();
+    const cityValue = city.value;
+    const validAgree = agree.checked;
+
+    
+    
+    let isFormValid = true;
+    
 
 
     if(fnameValue === '') {
-        setError(fname, 'Full name is required');
+        setError(alert('Form submitted successfully!'));
+        isFormValid = false;
     } else if(!isValidFullname(fnameValue)){
-        setError(fname,'Full name must contain at least two words (first and last name)')
+        setError(fname,'Full name must contain at least two words (first and last name)');
+        isFormValid = false;
 
-    }
-    else {
+    }else {
         setSuccess(fname);
     }
 
     if(emailValue === '') {
         setError(email, 'Email is required');
+        isFormValid = false;
     } else if (!isValidEmail(emailValue)) {
         setError(email, 'Provide a valid email address');
+        isFormValid = false;
     } else {
         setSuccess(email);
     }
     if (addressValue === '') {
         setError(address, 'Address is required');
+        isFormValid = false;
     } else if (!isValidAddress(addressValue) ) {
         setError(address, 'Provide a valid address');
+        isFormValid = false;
     } else {
         setSuccess(address);
     }
 
-    if(zipValue === '') {
-        setError(zip, 'Zip code is required');
-    } else if (!isValidZip(zipValue)) {
-        setError(zip, 'Enter a valid 5-digit zip code');
-    } else {
-        setSuccess(zip);
-    }
+    
+         if (zipValue === '') {
+             setError(zip, 'Zip code is required');
+             isFormValid = false;
+         } else if (!isValidZip(zipValue)) {
+             setError(zip, 'Enter a valid 5-digit zip code');
+             isFormValid = false;
+         } else {
+             setSuccess(zip);
+        }
+    
+    
 
 
 
     if(passwordValue === '') {
         setError(password, 'Password is required');
+        isFormValid = false;
     } else if (passwordValue.length < 8  ) {
-        setError(password, 'Password must be at least 8 character.')
+        setError(password, 'Password must be at least 8 character.');
+        isFormValid = false;
     } else {
         setSuccess(password);
     }
 
     if(password2Value === '') {
         setError(password2, 'Please confirm your password');
+        isFormValid = false;
     } else if (password2Value !== passwordValue) {
         setError(password2, "Passwords doesn't match");
+        isFormValid = false;
     } else {
         setSuccess(password2);
     }
 
-    if(addressValue === '') {
-        setError(address, 'Address is required');
+    if (cityValue === '') {
+        setError(city, 'Please select a city');
+        isFormValid = false;
     } else {
-        setSuccess(address);
+        setSuccess(city);
     }
 
-    if(zipValue === '') {
-        setError(zip, 'Zip code is required');
+
+    if (!validAgree) {
+        setError(agree, 'You must agree to the terms and conditions');
+        isFormValid = false;
     } else {
-        setSuccess(zip);
+        setSuccess(agree);
     }
+
+    if (isFormValid) {
+        alert('Form submitted successfully!');
+        
+    }
+
+
+   
+
 
 };
