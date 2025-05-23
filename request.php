@@ -7,7 +7,7 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 50%;
 }
 
 td, th {
@@ -29,13 +29,13 @@ td, th {
 </style>
 
 
-<title>DB ACCESS</title>
+<title>Request</title>
 </head>
 <body>
 
 <div class="container" style="padding-top:100px;">
     
-     <!-- <h1>Form</h1>
+     
         <table class="table" id="request">
 			<tbody>
 				<tr>
@@ -43,20 +43,20 @@ td, th {
 					<th>Id</th>
 					<th>City</th>
 					<th>Country</th>
-                    <th>API</th>
+                    <!-- //<th>API</th> -->
 				</tr>
                 <td><input type="checkbox" class="item_id" option_id="1"> </td>
 					<td>1</td>
 					<td>Delhi</td>
                     <td>India</td>
-					<td></td>
+					
 				</tr>
 				<tr>
 					<td><input type="checkbox" class="item_id" option_id="2"> </td>
 					<td>2</td>
 					<td>Dhaka</td>
                     <td>Bangladesh</td>
-					<td>124</td>
+					<!-- <td>124</td> -->
 				</tr>
 
                 <tr>
@@ -64,7 +64,7 @@ td, th {
                 <td>3</td>
                 <td>Tokyo</td>
                 <td>Japan</td>
-                <td>78</td>
+                <!-- <td>78</td> -->
                 </tr>
    
                 <tr>
@@ -72,7 +72,7 @@ td, th {
                 <td>4</td>
                 <td>New York</td>
                 <td>United States</td>
-                <td>89</td>
+                <!-- <td>89</td> -->
                 </tr>
     
               <tr>
@@ -80,7 +80,7 @@ td, th {
                     <td>5</td>
                     <td>London</td>
                     <td>United Kingdom</td>
-                    <td>92</td>
+                    <!-- <td>92</td> -->
              </tr>
     
     <tr>
@@ -88,7 +88,7 @@ td, th {
         <td>6</td>
         <td>Paris</td>
         <td>France</td>
-        <td>85</td>
+        <!-- <td>85</td> -->
     </tr>
     
     <tr>
@@ -96,7 +96,7 @@ td, th {
         <td>7</td>
         <td>Sydney</td>
         <td>Australia</td>
-        <td>66</td>
+        <!-- <td>66</td> -->
     </tr>
     
     <tr>
@@ -104,7 +104,7 @@ td, th {
         <td>8</td>
         <td>Toronto</td>
         <td>Canada</td>
-        <td>72</td>
+        <!-- <td>72</td> -->
     </tr>
     
     <tr>
@@ -112,7 +112,7 @@ td, th {
         <td>9</td>
         <td>Berlin</td>
         <td>Germany</td>
-        <td>80</td>
+        <!-- <td>80</td> -->
     </tr>
     
     <tr>
@@ -120,7 +120,7 @@ td, th {
         <td>10</td>
         <td>Moscow</td>
         <td>Russia</td>
-        <td>102</td>
+        <!-- <td>102</td> -->
     </tr>
     
     <tr>
@@ -128,7 +128,7 @@ td, th {
         <td>11</td>
         <td>Beijing</td>
         <td>China</td>
-        <td>210</td>
+        <!-- <td>210</td> -->
     </tr>
     
     <tr>
@@ -136,7 +136,7 @@ td, th {
         <td>12</td>
         <td>Cairo</td>
         <td>Egypt</td>
-        <td>165</td>
+        <!-- <td>165</td> -->
     </tr>
     
     <tr>
@@ -144,7 +144,7 @@ td, th {
         <td>13</td>
         <td>Rio de Janeiro</td>
         <td>Brazil</td>
-        <td>95</td>
+        <!-- <td>95</td> -->
     </tr>
     
     <tr>
@@ -152,7 +152,7 @@ td, th {
         <td>14</td>
         <td>Johannesburg</td>
         <td>South Africa</td>
-        <td>108</td>
+        <!-- <td>108</td> -->
     </tr>
     
     <tr>
@@ -160,7 +160,7 @@ td, th {
         <td>15</td>
         <td>Mexico City</td>
         <td>Mexico</td>
-        <td>134</td>
+        <!-- <td>134</td> -->
     </tr>
    
     <tr>
@@ -168,7 +168,7 @@ td, th {
         <td>16</td>
         <td>Madrid</td>
         <td>Spain</td>
-        <td>91</td>
+        <!-- <td>91</td> -->
     </tr>
     
     <tr>
@@ -176,7 +176,7 @@ td, th {
         <td>17</td>
         <td>Seoul</td>
         <td>South Korea</td>
-        <td>132</td>
+        <!-- <td>132</td> -->
     </tr>
    
     <tr>
@@ -184,7 +184,7 @@ td, th {
         <td>18</td>
         <td>Jakarta</td>
         <td>Indonesia</td>
-        <td>147</td>
+        <!-- <td>147</td> -->
     </tr>
     
     <tr>
@@ -192,7 +192,7 @@ td, th {
         <td>19</td>
         <td>Istanbul</td>
         <td>Turkey</td>
-        <td>104</td>
+        <!-- <td>104</td> -->
     </tr>
 
     <tr>
@@ -200,7 +200,7 @@ td, th {
         <td>20</td>
         <td>Lagos</td>
         <td>Nigeria</td>
-        <td>170</td>
+        <!-- <td>170</td> -->
     </tr>
 
                 
@@ -232,8 +232,8 @@ td, th {
 
   function submitSelection() {
     const checkedItems = document.querySelectorAll('.item_id:checked');
-    if (checkedItems.length < 10) {
-        alert('You must select at least 10 rows before submitting.');
+    if (checkedItems.length > 10) {
+        alert('You can not select more than 10 rows');
         return;
     }
 
@@ -241,9 +241,9 @@ td, th {
     alert('Submitted IDs: ' + selectedIds.join(', '));
     // Here you can send selectedIds to a server or process them further
   }
-</script> -->
+</script>
 
-<form action="showaqi.php" method="post" onsubmit="return validateSelection()">
+<!-- <form action="showaqi.php" method="post" onsubmit="return validateSelection()">
   <table>
     <tbody>
         <tr>
@@ -300,7 +300,7 @@ td, th {
     }
     return true;
   }
-</script>
+</script> -->
 
 
 
