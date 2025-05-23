@@ -20,10 +20,15 @@
         <div class="top-left">
           <div class="clearfix::after">
             <h2 style="text-align: center">Registration Form</h2>
-            <form id="form" action="/">
+            <form
+              id="form"
+              action="signup.php"
+              method="POST"
+              onsubmit="return  validateInputs()"
+            >
               <div class="input-control">
-                <label for="name">Full name: </label>
-                <input id="f-name" name="f-name" type="text" />
+                <label for="username">Full Name:</label>
+                <input id="username" name="username" type="text" />
                 <div class="error"></div>
               </div>
 
@@ -34,13 +39,13 @@
               </div>
 
               <div class="input-control">
-                <label for="Address">Address </label>
+                <label for="Address">Address: </label>
                 <input id="address" name="address" type="text" />
                 <div class="error"></div>
               </div>
               <div class="input-control">
-                <label for="zip">Zip Code</label>
-                <input id="zip" name="zip" type="number" />
+                <label for="zip">Zip Code:</label>
+                <input id="zip" name="zip" type="text" />
                 <div class="error"></div>
               </div>
 
@@ -58,7 +63,7 @@
 
               <div class="input-control" id="city">
                 <label for="city">Select a City:</label>
-                <select id="city">
+                <select id="city" name="city">
                   <option value="" disabled selected>Choose a city</option>
                   <option value="new_york">New York, USA</option>
                   <option value="los_angeles">Los Angeles, USA</option>
@@ -71,37 +76,49 @@
                   <option value="moscow">Moscow, Russia</option>
                   <option value="cairo">Cairo, Egypt</option>
                 </select>
-                <span class="error"></span>
+                <div class="error"></div>
               </div>
+
               <div class="input-control" id="agree-wrapper">
                 <input type="checkbox" id="agree" />
                 <label for="agree">I agree</label>
-                <span class="error"></span>
+                <div class="error"></div>
               </div>
 
-              <div class="buttondiv">
-                <button type="submit">Sign Up</button>
+              <div class="button">
+                <input
+                  onsubmit="validateInputs()"
+                  type="submit"
+                  name="submit"
+                  class="button1"
+                  value="Submit"
+                >
+              </input>
               </div>
             </form>
           </div>
         </div>
         <div class="bottom-left">
           <h2 style="text-align: center">Log-in page</h2>
+//Log-in
+
 
           <div class="input-control">
-            <label for="email">Email: </label>
-            <input id="email" name="email" type="email" />
-            <div class="error"></div>
+            <form action="login.php" method="post">
+                  <label for="email">Email: </label>
+                  <input id="email" name="email" type="email" />
+                  <div class="error"></div>
 
-            <div class="input-control">
-              <label for="password">Enter Password</label>
-              <input id="password" name="password" type="password" />
-              <div class="error"></div>
-            </div>
+                  <div class="input-control">
+                  <label for="password">Enter Password</label>
+                  <input id="password" name="password" type="password" />
+                  <div class="error"></div>
+                  </div>
 
-            <div class="buttondiv">
-              <button type="submit">Log in</button>
-            </div>
+                  <div class="buttondiv">
+                  <button type="submit">Log in</button>
+                  </div>
+            </form>
           </div>
         </div>
       </div>
